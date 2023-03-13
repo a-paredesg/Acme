@@ -1,0 +1,96 @@
+﻿@model Acme.Models.Encuesta
+
+@{
+    ViewBag.Title = "Completar";
+}
+
+<div class="container mt-4">
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @ViewBag.Message
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+    else if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @ViewBag.Error
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+
+    <dl class="dl-horizontal">
+        <dd>
+            <h1>@Html.DisplayFor(model => model.Nombre)</h1>
+        </dd>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+    </dl>
+</div>
+<hr />
+<div>
+    <form action="Completar" method="post">
+        <input type="number" name="id" value="@Model.Id" style="visibility:hidden" />
+        @foreach (var item in Model.Campos)
+        {
+            <div class="form-group">
+                @Html.DisplayFor(modelItem => item.Titulo)
+                @switch (item.TipoCampo)
+                {
+                    case Acme.Models.TipoCampo.Texto:
+                        if (item.EsRequerido)
+                        {
+                            <input type="text" name="@item.Nombre" value="" class="form-control" required />
+                        }
+                        else
+                        {
+                            <input type="text" name="@item.Nombre" value="" class="form-control" />
+                        }
+                        break;
+                    case Acme.Models.TipoCampo.Numero:
+                        if (item.EsRequerido)
+                        {
+                            <input type="number" name="@item.Nombre" value="" class="form-control" required />
+                        }
+                        else
+                        {
+                            <input type="number" name="@item.Nombre" value="" class="form-control" />
+                        }
+                        break;
+                    case Acme.Models.TipoCampo.Fecha:
+                        if (item.EsRequerido)
+                        {
+                            <input type="date" name="@item.Nombre" value="" class="form-control" required />
+                        }
+                        else
+                        {
+                            <input type="date" name="@item.Nombre" value="" class="form-control" />
+                        }
+                        break;
+                }
+            </div>
+        }
+        @if (ViewBag.Message == null || !User.Identity.IsAuthenticated)
+        {
+            <div class="form-group">
+                <input type="submit" value="Enviar Encuesta" class="btn btn-primary" />
+            </div>
+        }
+    </form>
+</div>
+<div>
+    <p>
+        @if (User.Identity.IsAuthenticated)
+        {
+            @Html.ActionLink("Regresar a Encuestas", "Index")
+        }
+    </p>
+</div>

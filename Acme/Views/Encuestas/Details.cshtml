@@ -1,0 +1,62 @@
+﻿@model Acme.Models.Encuesta
+
+@{
+    ViewBag.Title = "Detalle Encuesta";
+}
+
+<h2>Detalle Encuesta</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+        <dd>
+            <a href="@Html.DisplayFor(model => model.Url)">Completar Encuesta</a>
+        </dd>
+    </dl>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Campo</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Es requerido</th>
+                <th scope="col">Tipo Campo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Campos)
+            {
+                <tr>
+                    <td> @Html.DisplayFor(model => item.Nombre)</td>
+                    <td> @Html.DisplayFor(model => item.Titulo)</td>
+                    <td>@Html.DisplayFor(model => item.EsRequerido)</td>
+                    <td>@Html.DisplayFor(model => item.TipoCampo)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Regresar a Encuestas", "Index")
+</p>

@@ -1,0 +1,64 @@
+﻿@model Acme.Models.Campo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Campo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.encuesta.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.encuesta.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EsRequerido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EsRequerido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoCampo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoCampo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,37 @@
+﻿@using System.Data
+@model DataSet
+
+@{
+    ViewBag.Title = "ObtenerResultadosEncuesta";
+}
+
+<h2>Respuestas</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            @foreach (var campo in ViewBag.Collection)
+            {
+                <th scope="col">@Html.Raw(campo)</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DataRow row in Model.Tables[0].Rows)
+        {
+            <tr>
+                @foreach (var campo in ViewBag.Collection)
+                {
+                    <td>@row[campo]</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <p>
+        @Html.ActionLink("Regresar a encuestas", "Index")
+    </p>
+</div>

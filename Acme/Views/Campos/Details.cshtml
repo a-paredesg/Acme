@@ -1,0 +1,58 @@
+﻿@model Acme.Models.Campo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Campo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.encuesta.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.encuesta.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EsRequerido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EsRequerido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoCampo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoCampo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

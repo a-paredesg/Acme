@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="965b457ac7cf45c3bcd624f89527cb6f" Name="Diagram1">
+        <EntityTypeShape EntityType="AcmeModel.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" FillColor="192, 192, 255" />
+        <EntityTypeShape EntityType="AcmeModel.Campoes" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcmeModel.Encuestas" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcmeModel.Rols" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" FillColor="192, 192, 255" />
+        <EntityTypeShape EntityType="AcmeModel.Usuarios" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" FillColor="192, 192, 255" />
+        <AssociationConnector Association="AcmeModel.FK_dbo_Campoes_dbo_Encuestas_EncuestaId" ManuallyRouted="false" />
+        <AssociationConnector Association="AcmeModel.FK_dbo_Usuarios_dbo_Rols_RolId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
